@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <style>
+                table {
+                    border: 1px solid #666;
+                    width: 100%;
+                }
+                th {
+                    background: #f8f8f8;
+                    font-weight: bold;
+                    padding: 2px;
+                }
+                td {
+                    max-width: 250px;
+                }
+        </style>
+            
+    </head>
+    <body>
+        <form id="createBook">
+            ID: <input id="id" type="text" name="id">
+            Title: <input id="title" type="text" name="title">
+            Author: <input id="author" type="text" name="author">
+            Pages: <input id="pages" type="text" name="pages">
+            Genre: <input id="genre" type="text" name="genre">
+            <input type="submit" value="Add book">
+        </form>
+        <button id="updateBooks">Update</button>
+        <button id="deleteBooks">Delete</button>
+
+        <form id="createLending">
+                bookID: <input type="text" name="bookID">
+                lendingDate: <input type="text" name="lendingDate">
+                <input type="submit" value="Add lending">
+            </form>
+        <button id="showBooks">Show Books</button>
+        <div>
+            <table id="bookData">
+                <tr>
+                    <th>id</th>
+                    <th>title</th>
+                    <th>author</th>
+                    <th>pages</th>
+                    <th>genre</th>
+                </tr>
+            </table>
+        </div>
+        <button id="showLendings">Show Lendings</button>
+        <div>
+            <table id="lendingData">
+                <tr>
+                    <th>id</th>
+                    <th>bookID</th>
+                    <th>lendingDate</th>
+                </tr>
+            </table>
+        </div>
+        Genre: <input id="showBooksBy2" type="text" name="genre">
+            <button id="filterBooks">Show Books</button>
+        <div>
+            <table id="bookData2">
+                <tr>
+                    <th>id</th>
+                    <th>title</th>
+                    <th>author</th>
+                    <th>pages</th>
+                    <th>genre</th>
+                </tr>
+            </table>
+        </div>
+        <script src="scri.js"></script>
+        <!-- <script type="application/javascript">
+
+            document.getElementById("filterBooks").addEventListener("click", function() {
+                filterGenre();
+            })
+            
+            function filterGenre() {
+                var input = document.getElementById("showBooksBy2").value;
+                // console.log(input);
+                getBooksByGenre(input);
+            }
+
+            function getBooksByGenre(genre) {
+                console.log("start request");
+                $.ajax({
+                    url: "api/getAllByGenre.php?genre="+genre,
+                    type: "GET",
+                    success: function(result) {
+                    //console.log("done getall " + result);
+                    drawTable2(result);
+                    },
+                error: function(result) {
+                    //console.log("done getall " + result);
+                    drawTable2(result);
+                }});
+            }
+
+        function cleanTable2() {
+            $(`#bookData2`)
+                .find("tr:gt(0)")
+                .remove();
+        }
+
+        function drawTable2(data) {
+            cleanTable2();
+            for (var i in data) {
+                drawRow2(data[i]);
+            }
+        }
+
+        function drawRow2(rowData) {
+            var row = $("<tr />");
+            $(`#bookData2`).append(row); //this will append tr element to table... keep its reference for a while since we will add cels into it
+            row.append($("<td>" + rowData.id + "</td>"));
+            row.append($("<td>" + rowData.title + "</td>"));
+            row.append($("<td>" + rowData.author + "</td>"));
+            row.append($("<td>" + rowData.pages + "</td>"));
+            row.append($("<td>" + rowData.genre + "</td>"));
+        }  
+            
+        </script> -->
+    </body>
+</html>
